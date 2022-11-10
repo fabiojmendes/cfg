@@ -18,5 +18,5 @@ git clone --bare --recursive https://github.com/fabiojmendes/cfg.git $HOME/.loca
 
 alias cfg='git --git-dir=$HOME/.local/share/cfg/ --work-tree=$HOME'
 
-cfg submodule update --init
 cfg checkout
+cfg submodule update --init
