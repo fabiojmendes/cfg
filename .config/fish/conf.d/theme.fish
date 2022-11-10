@@ -8,7 +8,7 @@ set -U fish_color_error brred
 set -U fish_color_param normal
 set -U fish_color_comment 767676
 set -U fish_color_selection white --bold --background=brblack
-set -U fish_color_search_match --background=111
+set -U fish_color_search_match --background=555
 set -U fish_color_history_current --bold
 set -U fish_color_operator brcyan
 set -U fish_color_escape brcyan
