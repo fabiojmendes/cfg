@@ -1,0 +1,12 @@
+[submodule ".vim/pack/dist/start/nerdtree/nerdtree"]
+	path = .vim/pack/dist/start/nerdtree/nerdtree
+	url = https://github.com/preservim/nerdtree
+[submodule ".vim/pack/dist/start/vim-airline/vim-airline"]
+	path = .vim/pack/dist/start/vim-airline/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule ".vim/pack/dist/start/vim-airline-themes/vim-airline-themes"]
+	path = .vim/pack/dist/start/vim-airline-themes/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
+[submodule ".vim/pack/dist/start/vim-fish/vim-fish"]
+	path = .vim/pack/dist/start/vim-fish/vim-fish
+	url = https://github.com/dag/vim-fish
