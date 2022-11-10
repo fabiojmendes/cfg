@@ -7,7 +7,7 @@ set -U fish_color_end green
 set -U fish_color_error brred
 set -U fish_color_keyword yellow
 set -U fish_color_param normal
-set -U fish_color_option purple
+set -U fish_color_option magenta
 set -U fish_color_comment 767676
 set -U fish_color_selection white --bold --background=brblack
 set -U fish_color_search_match --background=555
