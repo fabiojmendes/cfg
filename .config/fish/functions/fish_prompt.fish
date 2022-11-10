@@ -6,7 +6,6 @@ function fish_prompt --description 'Write out the prompt'
     or set -g fish_color_status --background=red white
 
     # Color the prompt differently when we're root
-    set -l color_cwd $fish_color_cwd
     set -l color_user $fish_color_user
     set -l suffix ' ❯'
     if functions -q fish_is_root_user; and fish_is_root_user
@@ -30,7 +29,7 @@ function fish_prompt --description 'Write out the prompt'
 
     echo -n -s \
       (set_color $color_user) (prompt_login)' ' \
-      (set_color $color_cwd) (prompt_pwd) \
+      (set_color $fish_color_cwd) (prompt_pwd) \
       $normal (fish_vcs_prompt) \
       $normal " "$prompt_status \
       (set_color $color_user) $suffix " "
