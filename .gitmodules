@@ -10,6 +10,6 @@
 [submodule ".vim/pack/dist/start/vim-fish/vim-fish"]
 	path = .vim/pack/dist/start/vim-fish/vim-fish
 	url = https://github.com/dag/vim-fish
-[submodule ".shell-goodies/tmux/tmux-onedark-theme/.tmux-theme"]
+[submodule ".tmux-onedark-theme"]
 	path = .tmux-onedark-theme
 	url = https://github.com/odedlaz/tmux-onedark-theme.git
