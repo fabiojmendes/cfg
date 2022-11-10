@@ -1,15 +1,15 @@
-[submodule ".vim/pack/dist/start/nerdtree/nerdtree"]
-	path = .vim/pack/dist/start/nerdtree/nerdtree
+[submodule "nerdtree"]
+	path = .vim/pack/dist/start/nerdtree
 	url = https://github.com/preservim/nerdtree
-[submodule ".vim/pack/dist/start/vim-airline/vim-airline"]
-	path = .vim/pack/dist/start/vim-airline/vim-airline
+[submodule "vim-airline"]
+	path = .vim/pack/dist/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline
-[submodule ".vim/pack/dist/start/vim-airline-themes/vim-airline-themes"]
-	path = .vim/pack/dist/start/vim-airline-themes/vim-airline-themes
+[submodule "vim-airline-themes"]
+	path = .vim/pack/dist/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
-[submodule ".vim/pack/dist/start/vim-fish/vim-fish"]
-	path = .vim/pack/dist/start/vim-fish/vim-fish
+[submodule "vim-fish"]
+	path = .vim/pack/dist/start/vim-fish
 	url = https://github.com/dag/vim-fish
-[submodule ".tmux-onedark-theme"]
+[submodule "tmux-onedark-theme"]
 	path = .tmux-onedark-theme
 	url = https://github.com/odedlaz/tmux-onedark-theme.git
