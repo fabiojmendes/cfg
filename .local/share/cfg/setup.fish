@@ -3,8 +3,6 @@
 echo "Running fish setup"
 
 #Install fisher
-source (curl -sL https://git.io/fisher | psub)
-fisher install jorgebucaran/fisher
 fisher install PatrickF1/fzf.fish
 
 # Cfg

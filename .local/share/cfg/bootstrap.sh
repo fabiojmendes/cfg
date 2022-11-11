@@ -24,7 +24,9 @@ cfg checkout
 cfg submodule update --init
 
 echo "Setup fish"
-$cfg_home/setup.fish
+fish=$(which fish)
+$fish -c 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher'
+$fish $cfg_home/setup.fish
 
 echo "Change default shell to fish"
-$sudo chsh -s $(which fish) $USER
+$sudo chsh -s $fish $USER
