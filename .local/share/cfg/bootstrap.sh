@@ -20,12 +20,12 @@ echo "Clone cfg repo"
 git clone --bare --recursive https://github.com/fabiojmendes/cfg.git $cfg_home
 
 alias cfg="git --git-dir=$cfg_home --work-tree=$HOME"
-
-cfg config --local status.showUntrackedFiles no
 cfg checkout
 cfg submodule update --init
 
-echo "Change default shell to fish"
+echo "Setup fish"
 fish=$(which fish)
 $fish $cfg_home/setup.fish
+
+echo "Change default shell to fish"
 $sudo chsh -s $fish $USER
