@@ -28,4 +28,4 @@ cfg submodule update --init
 echo "Change default shell to fish"
 fish=$(which fish)
 $fish $cfg_home/setup.fish
-$sudo chsh -s w$fish $USER
+$sudo chsh -s $fish $USER
