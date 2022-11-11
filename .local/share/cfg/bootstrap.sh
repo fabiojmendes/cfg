@@ -14,19 +14,22 @@ elif [ -f /etc/debian_version ]; then
   $sudo apt update && $sudo apt install -y git fish fzf tmux vim curl
 fi
 
-cfg_home=$HOME/.local/share/cfg
+# Git settings
+git config --global init.defaultbranch master
+git config --global user.email "fabiojmendes@gmail.com"
+git config --global user.name "Fabio Mendes"
+git config --global rebase.autoStash true
+git config --global pull.rebase true
 
+# Cfg
 echo "Clone cfg repo"
-git clone --bare --recursive https://github.com/fabiojmendes/cfg.git $cfg_home
-
-alias cfg="git --git-dir=$cfg_home --work-tree=$HOME"
+cfg_home=$HOME/.local/share/cfg
+git clone --bare --recursive https://github.com/fabiojmendes/cfg.git $cfg_home/.git
+alias cfg="git --git-dir=$cfg_home/.git --work-tree=$HOME"
+cfg config --local alias.update 'submodule update --remote --merge'
+cfg config --local status.showUntrackedFiles no
 cfg checkout
 cfg submodule update --init
 
-echo "Setup fish"
-fish=$(which fish)
-$fish -c 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher'
-$fish $cfg_home/setup.fish
-
 echo "Change default shell to fish"
-$sudo chsh -s $fish $USER
+$sudo chsh -s $(which fish) $USER
