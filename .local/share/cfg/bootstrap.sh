@@ -25,9 +25,7 @@ cfg config --local status.showUntrackedFiles no
 cfg checkout
 cfg submodule update --init
 
-echo "Change default shell"
-$sudo chsh -s /usr/bin/fish $USER
-
+echo "Change default shell to fish"
 fish=$(which fish)
-
 $fish $cfg_home/setup.fish
+$sudo chsh -s w$fish $USER
