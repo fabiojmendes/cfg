@@ -1,5 +1,5 @@
-function cfg --wraps='git --git-dir=$HOME/.local/share/cfg --work-tree=$HOME' --description 'alias cfg=git --git-dir=$HOME/.local/share/cfg --work-tree=$HOME'
-    set -l git_args --git-dir=$HOME/.local/share/cfg --work-tree=$HOME
+function cfg --wraps='git --git-dir=$HOME/.local/share/cfg/.git --work-tree=$HOME' --description 'Cfg utils'
+    set -l git_args --git-dir=$HOME/.local/share/cfg/.git --work-tree=$HOME
     if [ $argv[1] = 'update' ]
         echo 'Performing cfg update'
         git $git_args pull
