@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-echo "Executing fisrt login configs"
+echo "Executing first login configs"
 
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 fisher install PatrickF1/fzf.fish
