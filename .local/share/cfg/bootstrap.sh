@@ -26,7 +26,6 @@ echo "Clone cfg repo"
 cfg_home=$HOME/.local/share/cfg
 git clone --bare --recursive https://github.com/fabiojmendes/cfg.git $cfg_home/.git
 alias cfg="git --git-dir=$cfg_home/.git --work-tree=$HOME"
-cfg config --local alias.update 'submodule update --remote --merge'
 cfg config --local status.showUntrackedFiles no
 cfg checkout
 cfg submodule update --init
