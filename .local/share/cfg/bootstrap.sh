@@ -34,4 +34,4 @@ echo "Change default shell to fish"
 fish=$(which fish)
 $sudo chsh -s $fish $USER
 
-$fish -l
+exec $fish -l
