@@ -21,7 +21,7 @@ set -U fish_color_user green
 set -U fish_color_root red
 set -U fish_color_host normal
 set -U fish_color_cancel --reverse
-set -U fish_pager_color_prefix cyan --bold --underline
+set -U fish_pager_color_prefix blue --bold --underline
 set -U fish_pager_color_progress brwhite --background=cyan
 set -U fish_pager_color_completion normal
 set -U fish_pager_color_description B3A06D --italics
