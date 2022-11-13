@@ -16,4 +16,4 @@
 [submodule "nvim"]
 	path = .config/nvim
 	url = https://github.com/fabiojmendes/nvim
-  branch = master
+	branch = master
