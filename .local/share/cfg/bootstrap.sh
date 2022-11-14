@@ -34,4 +34,5 @@ echo "Change default shell to fish"
 fish=$(which fish)
 $sudo chsh -s $fish $USER
 
+# First login setup
 $fish -l $cfg_home/first_login.fish
