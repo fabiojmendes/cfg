@@ -13,7 +13,3 @@
 [submodule "tmux-onedark-theme"]
 	path = .local/share/tmux/onedark
 	url = https://github.com/odedlaz/tmux-onedark-theme.git
-[submodule "nvim"]
-	path = .config/nvim
-	url = https://github.com/fabiojmendes/nvim.git
-	branch = master
