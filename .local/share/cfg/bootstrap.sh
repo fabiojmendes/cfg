@@ -28,7 +28,7 @@ git clone --bare --recursive https://github.com/fabiojmendes/cfg.git $cfg_home/.
 alias cfg="git --git-dir=$cfg_home/.git --work-tree=$HOME"
 cfg config --local status.showUntrackedFiles no
 cfg checkout
-cfg submodule update --init
+cfg submodule update --init --remote
 
 echo "Change default shell to fish"
 fish=$(which fish)
