@@ -13,6 +13,7 @@ set background=dark
 set nocompatible
 set hidden
 set mouse=a
+set scrolloff=8
 
 set modeline
 set laststatus=2
@@ -24,6 +25,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 " Search
+set ignorecase
+set smartcase
 set hlsearch
 set incsearch
 
@@ -41,12 +44,24 @@ highlight MatchParen cterm=underline ctermfg=red ctermbg=none
 " Systemd unit files
 au BufNewFile,BufRead */systemd/*.{automount,mount,path,service,socket,swap,target,timer}* setf systemd
 
-" KeyBindings
+"""""""""""""""
+" KeyBindings "
+"""""""""""""""
+
+map <Space> <Leader>
+nmap <Leader>c :bd<CR>
+
 " Move between buffers
 nnoremap <S-H> :bprev<CR>
 nnoremap <S-L> :bnext<CR>
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
+" Maps <C-c> to <Esc> so it triggers abbreviations
+inoremap <C-c> <Esc>
+
+" Stay in indent mode
+vnoremap < <gv
+vnoremap > >gv
 
 " Better cursor
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
