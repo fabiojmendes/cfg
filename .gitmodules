@@ -10,10 +10,6 @@
 	path = .vim/pack/dist/start/vim-fish
 	url = https://github.com/dag/vim-fish
 	branch = master
-[submodule "commentary"]
-	path = .vim/pack/dist/start/commentary
-	url = https://tpope.io/vim/commentary.git
-	branch = master
 [submodule "tmux-onedark-theme"]
 	path = .local/share/tmux/onedark
 	url = https://github.com/odedlaz/tmux-onedark-theme.git
@@ -22,3 +18,6 @@
 	path = .config/nvim
 	url = https://github.com/fabiojmendes/nvim.git
 	branch = master
+[submodule "commentary"]
+	path = .vim/pack/dist/start/commentary
+	url = https://tpope.io/vim/commentary.git
