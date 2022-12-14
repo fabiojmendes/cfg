@@ -2,17 +2,61 @@
 
 set -eu
 
+cfg_home=$HOME/.local/share/cfg
+if [ -d $cfg_home ]; then
+  echo "cfg already installed"
+  exit 1
+fi
+
+echo "Installing shell cfg"
+
 sudo=''
 if [ $(id -u) -ne 0 ]; then
   sudo='sudo'
 fi
 
-echo "Installing shell cfg"
-if [ -f /etc/redhat-release ]; then
-  $sudo dnf install -y vim git-core fish fzf tmux curl sqlite util-linux-user
-elif [ -f /etc/debian_version ]; then
-  $sudo apt update && $sudo apt install -y git fish fzf tmux vim curl
-fi
+. /etc/os-release
+
+add_deb_repo() {
+  $sudo apt update && $sudo apt install -y gpg curl
+  echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_11/ /' \
+    | $sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
+  curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_11/Release.key \
+    | gpg --dearmor | $sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg > /dev/null
+}
+
+install_fzf() {
+  git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+  $HOME/.fzf/install --no-bash --no-zsh --no-completion --no-key-bindings --update-rc
+}
+
+install_packages_apt() {
+  $sudo apt update && $sudo apt install -y git fish tmux vim curl $@
+}
+
+install_packages_dnf() {
+  $sudo dnf install -y vim git-core fish tmux curl sqlite util-linux-user $@
+}
+
+echo "Installing dependencies"
+case "$ID" in
+  debian)
+    add_deb_repo
+    install_packages_apt
+    install_fzf
+    ;;
+  ubuntu)
+    install_packages_apt fzf
+    ;;
+  fedora)
+    install_packages_dnf fzf
+    ;;
+  centos)
+    $sudo dnf install -y epel-release
+    install_packages_dnf
+    install_fzf
+    ;;
+esac
 
 # Git settings
 git config --global init.defaultbranch master
@@ -23,7 +67,6 @@ git config --global pull.rebase true
 
 # Cfg
 echo "Clone cfg repo"
-cfg_home=$HOME/.local/share/cfg
 git clone --bare --recursive https://github.com/fabiojmendes/cfg.git $cfg_home/.git
 alias cfg="git --git-dir=$cfg_home/.git --work-tree=$HOME"
 cfg config --local status.showUntrackedFiles no
