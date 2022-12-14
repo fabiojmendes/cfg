@@ -5,7 +5,7 @@ set -eu
 cfg_home=$HOME/.local/share/cfg
 if [ -d $cfg_home ]; then
   echo "cfg already installed"
-  exit 1
+  exit
 fi
 
 echo "Installing shell cfg"
@@ -70,6 +70,8 @@ echo "Clone cfg repo"
 git clone --bare --recursive https://github.com/fabiojmendes/cfg.git $cfg_home/.git
 alias cfg="git --git-dir=$cfg_home/.git --work-tree=$HOME"
 cfg config --local status.showUntrackedFiles no
+# Remove old files
+rm -f $HOME/.tmux.conf $HOME/.vimrc $HOME/.toprc
 cfg checkout
 cfg submodule update --init --remote
 
