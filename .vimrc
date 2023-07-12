@@ -1,12 +1,3 @@
-" silent! source $VIMRUNTIME/defaults.vim
-" source $VIMRUNTIME/vimrc_example.vim
-
-" Return to last edit position when opening files (You want this!)
-autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
-
 " General
 syntax enable
 set background=dark
@@ -48,20 +39,23 @@ au BufNewFile,BufRead */systemd/*.{automount,mount,path,service,socket,swap,targ
 " KeyBindings "
 """""""""""""""
 
-map <Space> <Leader>
-nmap <Leader>c :bd<CR>
+map <space> <Leader>
+nmap <leader>bd :bd<cr>
 
 " Move between buffers
-nnoremap <S-H> :bprev<CR>
-nnoremap <S-L> :bnext<CR>
+nnoremap <S-H> :bprev<cr>
+nnoremap <S-L> :bnext<cr>
 " <Ctrl-l> redraws the screen and removes any search highlighting.
-nnoremap <silent> <C-l> :nohl<CR><C-l>
-" Maps <C-c> to <Esc> so it triggers abbreviations
-inoremap <C-c> <Esc>
+nnoremap <silent> <C-l> :nohl<cr><C-l>
+" Maps <C-c> to <esc> so it triggers abbreviations
+inoremap <C-c> <esc>
 
 " Stay in indent mode
 vnoremap < <gv
 vnoremap > >gv
+
+noremap <c-s> <cmd>w<cr><esc>
+inoremap <c-s> <cmd>w<cr><esc>
 
 " Better cursor
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -77,5 +71,3 @@ highlight DiffAdd    cterm=none ctermfg=none ctermbg=65
 highlight DiffDelete cterm=none ctermfg=none ctermbg=52
 highlight DiffChange cterm=none ctermfg=none ctermbg=none
 highlight DiffText   cterm=none ctermfg=none ctermbg=239
-
-source $VIMRUNTIME/defaults.vim
