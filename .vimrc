@@ -71,3 +71,7 @@ highlight DiffAdd    cterm=none ctermfg=none ctermbg=65
 highlight DiffDelete cterm=none ctermfg=none ctermbg=52
 highlight DiffChange cterm=none ctermfg=none ctermbg=none
 highlight DiffText   cterm=none ctermfg=none ctermbg=239
+
+" Commentary
+setglobal commentstring=# %s
+autocmd FileType cpp setlocal commentstring=// %s
