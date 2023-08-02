@@ -73,5 +73,5 @@ highlight DiffChange cterm=none ctermfg=none ctermbg=none
 highlight DiffText   cterm=none ctermfg=none ctermbg=239
 
 " Commentary
-setglobal commentstring=# %s
-autocmd FileType cpp setlocal commentstring=// %s
+setglobal commentstring=#\ %s
+autocmd FileType cpp setlocal commentstring=//\ %s
