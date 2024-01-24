@@ -4,6 +4,7 @@ function cfg --wraps='git --git-dir=$HOME/.local/share/cfg/.git --work-tree=$HOM
         echo 'Performing cfg update'
         git $git_args pull
         git $git_args submodule update --remote --merge
+        fisher update
     else
         git $git_args $argv
     end
