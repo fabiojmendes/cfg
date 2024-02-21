@@ -41,9 +41,7 @@ install_packages_dnf() {
 echo "Installing dependencies"
 case "$ID" in
   debian)
-    add_deb_repo
-    install_packages_apt
-    install_fzf
+    install_packages_apt fzf
     ;;
   ubuntu)
     install_packages_apt fzf
