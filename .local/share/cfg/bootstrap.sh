@@ -19,10 +19,15 @@ fi
 
 add_deb_repo() {
   $sudo apt update && $sudo apt install -y gpg curl
-  echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_11/ /' \
-    | $sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
-  curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_11/Release.key \
-    | gpg --dearmor | $sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg > /dev/null
+  echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_11/ /' |
+    $sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
+  curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_11/Release.key |
+    gpg --dearmor | $sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg >/dev/null
+}
+
+add_rhel_repo() {
+  curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/CentOS-9_Stream/shells:fish:release:3.repo |
+    $sudo tee /etc/yum.repos.d/fish3.repo
 }
 
 install_fzf() {
@@ -40,20 +45,24 @@ install_packages_dnf() {
 
 echo "Installing dependencies"
 case "$ID" in
-  debian)
-    install_packages_apt fzf
-    ;;
-  ubuntu)
-    install_packages_apt fzf
-    ;;
-  fedora)
-    install_packages_dnf fzf
-    ;;
-  centos)
-    $sudo dnf install -y epel-release
-    install_packages_dnf
-    install_fzf
-    ;;
+debian)
+  install_packages_apt fzf
+  ;;
+ubuntu)
+  install_packages_apt fzf
+  ;;
+fedora)
+  install_packages_dnf fzf
+  ;;
+rocky)
+  add_rhel_repo
+  install_packages_dnf fzf
+  ;;
+centos)
+  $sudo dnf install -y epel-release
+  install_packages_dnf
+  install_fzf
+  ;;
 esac
 
 # Git settings
