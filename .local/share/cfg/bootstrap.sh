@@ -56,6 +56,7 @@ fedora)
   ;;
 rocky)
   add_rhel_repo
+  $sudo dnf install -y epel-release
   install_packages_dnf fzf
   ;;
 centos)
