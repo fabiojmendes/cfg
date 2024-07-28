@@ -76,3 +76,4 @@ highlight DiffText   cterm=none ctermfg=none ctermbg=239
 setlocal commentstring=#\ %s
 autocmd FileType cpp setlocal commentstring=//\ %s
 autocmd FileType vim setlocal commentstring=\"\ %s
+autocmd FileType systemd setlocal commentstring=#\ %s
