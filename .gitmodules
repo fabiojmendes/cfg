@@ -20,4 +20,7 @@
 	branch = master
 [submodule "commentary"]
 	path = .vim/pack/dist/start/commentary
-	url = https://github.com/tpope/vim-commentary.git/
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "vim-caddyfile"]
+	path = .vim/pack/dist/start/vim-caddyfile
+	url = https://github.com/isobit/vim-caddyfile.git
