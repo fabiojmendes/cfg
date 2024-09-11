@@ -30,11 +30,6 @@ add_rhel_repo() {
     $sudo tee /etc/yum.repos.d/fish3.repo
 }
 
-install_fzf() {
-  git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
-  $HOME/.fzf/install --no-bash --no-zsh --no-completion --no-key-bindings --update-rc
-}
-
 install_packages_apt() {
   $sudo apt update && $sudo apt install -y git fish tmux vim curl $@
 }
@@ -60,9 +55,9 @@ rocky)
   install_packages_dnf fzf tar
   ;;
 centos)
+  add_rhel_repo
   $sudo dnf install -y epel-release
-  install_packages_dnf
-  install_fzf
+  install_packages_dnf fzf tar
   ;;
 esac
 
