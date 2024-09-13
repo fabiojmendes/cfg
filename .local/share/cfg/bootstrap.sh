@@ -14,9 +14,9 @@ echo "Installing shell cfg"
 
 add_deb_repo() {
   sudo apt update && sudo apt install -y gpg curl
-  echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_11/ /' |
+  echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_l2/ /' |
     sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
-  curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_11/Release.key |
+  curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_12/Release.key |
     gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg >/dev/null
 }
 
@@ -26,37 +26,38 @@ add_rhel_repo() {
 }
 
 install_packages_apt() {
-  sudo apt update && sudo apt install -y git fish tmux vim curl $@
+  sudo apt update && sudo apt install -y git fish tmux vim $@
 }
 
 install_packages_dnf() {
-  sudo dnf install -y vim git-core fish tmux curl sqlite util-linux-user $@
+  sudo dnf install -y vim git-core fish tmux $@
 }
 
 echo "Installing dependencies"
 case "$ID" in
 debian)
-  install_packages_apt fzf
+  install_packages_apt
   ;;
 ubuntu)
-  install_packages_apt fzf
+  install_packages_apt
   ;;
 fedora)
-  install_packages_dnf fzf
+  install_packages_dnf
   ;;
 rocky)
   add_rhel_repo
   sudo dnf install -y epel-release
-  install_packages_dnf fzf tar
+  install_packages_dnf
   ;;
 centos)
   add_rhel_repo
   sudo dnf install -y epel-release
-  install_packages_dnf fzf tar
+  install_packages_dnf
   ;;
 esac
 
 # Sudo no reset
+echo "Install sudo preferences for $USER"
 NO_RESET=$(mktemp)
 cat >$NO_RESET <<EOF
 Defaults:$USER !env_reset
