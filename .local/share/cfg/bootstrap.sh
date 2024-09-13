@@ -64,7 +64,7 @@ EOF
 if ! visudo -c $HOME/99-no-reset; then
   exit 1
 fi
-mv 99-no-reset /etc/sudoers.d/
+mv $HOME/99-no-reset /etc/sudoers.d/
 
 # Git settings
 git config --global init.defaultbranch master
