@@ -57,10 +57,14 @@ centos)
 esac
 
 # Sudo no reset
-cat <<EOF | sudo tee /etc/sudoers.d/99-no-reset
+cat <<EOF >$HOME/99-no-reset
 Defaults:$USER !env_reset
 Defaults:$USER !always_set_home
 EOF
+if ! visudo -c $HOME/99-no-reset; then
+  exit 1
+fi
+mv 99-no-reset /etc/sudoers.d/
 
 # Git settings
 git config --global init.defaultbranch master
