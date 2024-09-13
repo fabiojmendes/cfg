@@ -10,32 +10,27 @@ fi
 
 echo "Installing shell cfg"
 
-sudo=''
-if [ $(id -u) -ne 0 ]; then
-  sudo='sudo'
-fi
-
 . /etc/os-release
 
 add_deb_repo() {
-  $sudo apt update && $sudo apt install -y gpg curl
+  sudo apt update && sudo apt install -y gpg curl
   echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_11/ /' |
-    $sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
+    sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
   curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_11/Release.key |
-    gpg --dearmor | $sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg >/dev/null
+    gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg >/dev/null
 }
 
 add_rhel_repo() {
   curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/CentOS-9_Stream/shells:fish:release:3.repo |
-    $sudo tee /etc/yum.repos.d/fish3.repo
+    sudo tee /etc/yum.repos.d/fish3.repo
 }
 
 install_packages_apt() {
-  $sudo apt update && $sudo apt install -y git fish tmux vim curl $@
+  sudo apt update && sudo apt install -y git fish tmux vim curl $@
 }
 
 install_packages_dnf() {
-  $sudo dnf install -y vim git-core fish tmux curl sqlite util-linux-user $@
+  sudo dnf install -y vim git-core fish tmux curl sqlite util-linux-user $@
 }
 
 echo "Installing dependencies"
@@ -51,15 +46,21 @@ fedora)
   ;;
 rocky)
   add_rhel_repo
-  $sudo dnf install -y epel-release
+  sudo dnf install -y epel-release
   install_packages_dnf fzf tar
   ;;
 centos)
   add_rhel_repo
-  $sudo dnf install -y epel-release
+  sudo dnf install -y epel-release
   install_packages_dnf fzf tar
   ;;
 esac
+
+# Sudo no reset
+cat <<EOF | sudo tee /etc/sudoers.d/99-no-reset
+Defaults:$USER !env_reset
+Defaults:$USER !always_set_home
+EOF
 
 # Git settings
 git config --global init.defaultbranch master
@@ -80,7 +81,7 @@ cfg submodule update --init --remote
 
 echo "Change default shell to fish"
 fish=$(which fish)
-$sudo chsh -s $fish $USER
+sudo chsh -s $fish $USER
 
 # First login setup
 $fish -l $cfg_home/first_login.fish
