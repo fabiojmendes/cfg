@@ -30,7 +30,7 @@ install_packages_apt() {
 }
 
 install_packages_dnf() {
-  sudo dnf install -y vim git-core fish tmux $@
+  sudo dnf install -y vim git-core fish tmux util-linux-user $@
 }
 
 echo "Installing dependencies"
