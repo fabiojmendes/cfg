@@ -35,24 +35,19 @@ install_packages_dnf() {
 
 echo "Installing dependencies"
 case "$ID" in
-debian)
+debian | ubuntu)
   install_packages_apt
   ;;
-ubuntu)
-  install_packages_apt
+rocky | centos)
+  add_rhel_repo
+  sudo dnf install -y epel-release
+  install_packages_dnf tar
   ;;
 fedora)
   install_packages_dnf
   ;;
-rocky)
-  add_rhel_repo
-  sudo dnf install -y epel-release
-  install_packages_dnf
-  ;;
-centos)
-  add_rhel_repo
-  sudo dnf install -y epel-release
-  install_packages_dnf
+*)
+  echo "Distro $ID not supported"
   ;;
 esac
 
