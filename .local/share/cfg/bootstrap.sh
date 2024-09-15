@@ -65,7 +65,6 @@ install_cfg() {
   # Cfg
   echo "Clone cfg repo"
   git clone --bare --recursive https://github.com/fabiojmendes/cfg.git $cfg_home/.git
-  alias cfg="git --git-dir=$cfg_home/.git --work-tree=$HOME"
   cfg config --local status.showUntrackedFiles no
   # Remove old files
   rm -f $HOME/.tmux.conf $HOME/.vimrc $HOME/.toprc
@@ -86,6 +85,7 @@ if [ -d $cfg_home ]; then
   echo "cfg already installed"
   exit 1
 fi
+alias cfg="git --git-dir=$cfg_home/.git --work-tree=$HOME"
 
 sudo_no_reset
 install_dependencies
