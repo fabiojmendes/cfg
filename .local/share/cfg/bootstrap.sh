@@ -61,33 +61,31 @@ configure_git() {
   git config --global pull.rebase true
 }
 
-install_cfg() {
-  # Cfg
-  echo "Clone cfg repo"
-  git clone --bare --recursive https://github.com/fabiojmendes/cfg.git $cfg_home/.git
-  cfg config --local status.showUntrackedFiles no
-  # Remove old files
-  rm -f $HOME/.tmux.conf $HOME/.vimrc $HOME/.toprc
-  cfg checkout
-  cfg submodule update --init --remote
-
-  echo "Change default shell to fish"
-  fish=$(which fish)
-  sudo chsh -s $fish $USER
-
-  # First login setup
-  $fish -l $cfg_home/first_login.fish
-}
-
 echo "Installing shell cfg"
 cfg_home=$HOME/.local/share/cfg
 if [ -d $cfg_home ]; then
   echo "cfg already installed"
   exit 1
 fi
-alias cfg="git --git-dir=$cfg_home/.git --work-tree=$HOME"
 
 sudo_no_reset
 install_dependencies
 configure_git
 install_cfg
+
+# Cfg
+echo "Clone cfg repo"
+git clone --bare --recursive https://github.com/fabiojmendes/cfg.git $cfg_home/.git
+alias cfg="git --git-dir=$cfg_home/.git --work-tree=$HOME"
+cfg config --local status.showUntrackedFiles no
+# Remove old files
+rm -f $HOME/.tmux.conf $HOME/.vimrc $HOME/.toprc
+cfg checkout
+cfg submodule update --init --remote
+
+echo "Change default shell to fish"
+fish=$(which fish)
+sudo chsh -s $fish $USER
+
+# First login setup
+$fish -l $cfg_home/first_login.fish
