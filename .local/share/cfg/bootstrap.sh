@@ -71,7 +71,6 @@ fi
 sudo_no_reset
 install_dependencies
 configure_git
-install_cfg
 
 # Cfg
 echo "Clone cfg repo"
