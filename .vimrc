@@ -10,8 +10,13 @@ set modeline
 set laststatus=2
 set noshowmode
 
+" Theme
+let g:gruvbox_contrast_dark = "soft"
+let g:gruvbox_invert_selection = 0
+colorscheme gruvbox
+
 " Airline
-let g:airline_theme='bubblegum'
+" let g:airline_theme='bubblegum'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
@@ -67,10 +72,10 @@ set ttimeoutlen=1
 set ttyfast
 
 " Diff colorscheme
-highlight DiffAdd    cterm=none ctermfg=none ctermbg=65
-highlight DiffDelete cterm=none ctermfg=none ctermbg=52
-highlight DiffChange cterm=none ctermfg=none ctermbg=none
-highlight DiffText   cterm=none ctermfg=none ctermbg=239
+" highlight DiffAdd    cterm=none ctermfg=none ctermbg=65
+" highlight DiffDelete cterm=none ctermfg=none ctermbg=52
+" highlight DiffChange cterm=none ctermfg=none ctermbg=none
+" highlight DiffText   cterm=none ctermfg=none ctermbg=239
 
 " Commentary
 setlocal commentstring=#\ %s
