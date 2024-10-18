@@ -33,26 +33,23 @@ set tabstop=4
 set autoindent
 set smartindent
 
-" MatchParen colors
-highlight MatchParen cterm=underline ctermfg=red ctermbg=none
-
 """""""""""""""
 " KeyBindings "
 """""""""""""""
 
 map <space> <Leader>
-nmap <leader>bd :bd<cr>
+nmap <leader>bd <cmd>bd<cr>
 
 " Move between buffers
-nnoremap <S-H> :bprev<cr>
-nnoremap <S-L> :bnext<cr>
+nnoremap <S-H> <cmd>bprev<cr>
+nnoremap <S-L> <cmd>bnext<cr>
 " Move between windows
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 " Esc redraws the screen and removes any search highlighting
-nnoremap <silent> <esc> :nohl<cr>:redraw!<cr><esc>
+nnoremap <silent> <esc> <cmd>nohl<cr><esc>
 " Maps <C-c> to <esc> so it triggers abbreviations
 inoremap <C-c> <esc>
 
