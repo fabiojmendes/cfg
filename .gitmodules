@@ -1,24 +1,21 @@
-[submodule "vim-airline"]
-	path = .vim/pack/dist/start/vim-airline
-	url = https://github.com/vim-airline/vim-airline
-[submodule "vim-airline-themes"]
-	path = .vim/pack/dist/start/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes
-[submodule "vim-fish"]
-	path = .vim/pack/dist/start/vim-fish
-	url = https://github.com/dag/vim-fish
-[submodule "tmux-onedark-theme"]
+[submodule ".local/share/tmux/onedark"]
 	path = .local/share/tmux/onedark
 	url = https://github.com/odedlaz/tmux-onedark-theme.git
-[submodule "nvim"]
+[submodule ".config/nvim"]
 	path = .config/nvim
 	url = https://github.com/fabiojmendes/nvim.git
-[submodule "commentary"]
+[submodule ".vim/pack/dist/start/vim-airline"]
+	path = .vim/pack/dist/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule ".vim/pack/dist/start/vim-airline-themes"]
+	path = .vim/pack/dist/start/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
+[submodule ".vim/pack/dist/start/commentary"]
 	path = .vim/pack/dist/start/commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "vim-caddyfile"]
-	path = .vim/pack/dist/start/vim-caddyfile
-	url = https://github.com/isobit/vim-caddyfile.git
-[submodule "onedark.vim"]
+[submodule ".vim/pack/dist/start/onedark.vim"]
 	path = .vim/pack/dist/start/onedark.vim
 	url = https://github.com/joshdick/onedark.vim.git
+[submodule ".vim/pack/dist/start/vim-polyglot"]
+	path = .vim/pack/dist/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
