@@ -7,6 +7,7 @@ set mouse=a
 set scrolloff=8
 
 set modeline
+set number
 set laststatus=2
 set noshowmode
 
