@@ -35,9 +35,6 @@ set smartindent
 " MatchParen colors
 highlight MatchParen cterm=underline ctermfg=red ctermbg=none
 
-" Systemd unit files
-au BufNewFile,BufRead */systemd/*.{automount,mount,path,service,socket,swap,target,timer}* setf systemd
-
 """""""""""""""
 " KeyBindings "
 """""""""""""""
