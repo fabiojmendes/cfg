@@ -1,23 +1,18 @@
 [submodule "vim-airline"]
 	path = .vim/pack/dist/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline
-	branch = master
 [submodule "vim-airline-themes"]
 	path = .vim/pack/dist/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
-	branch = master
 [submodule "vim-fish"]
 	path = .vim/pack/dist/start/vim-fish
 	url = https://github.com/dag/vim-fish
-	branch = master
 [submodule "tmux-onedark-theme"]
 	path = .local/share/tmux/onedark
 	url = https://github.com/odedlaz/tmux-onedark-theme.git
-	branch = master
 [submodule "nvim"]
 	path = .config/nvim
 	url = https://github.com/fabiojmendes/nvim.git
-	branch = master
 [submodule "commentary"]
 	path = .vim/pack/dist/start/commentary
 	url = https://github.com/tpope/vim-commentary.git
