@@ -11,7 +11,7 @@ set laststatus=2
 set noshowmode
 
 " Theme
-let g:gruvbox_contrast_dark = "soft"
+" let g:gruvbox_contrast_dark = 'soft'
 let g:gruvbox_invert_selection = 0
 colorscheme gruvbox
 
