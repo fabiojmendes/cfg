@@ -48,8 +48,13 @@ nmap <leader>bd :bd<cr>
 " Move between buffers
 nnoremap <S-H> :bprev<cr>
 nnoremap <S-L> :bnext<cr>
-" <Ctrl-l> redraws the screen and removes any search highlighting.
-nnoremap <silent> <C-l> :nohl<cr><C-l>
+" Move between windows
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+" Esc redraws the screen and removes any search highlighting
+nnoremap <silent> <esc> :nohl<cr>:redraw!<cr><esc>
 " Maps <C-c> to <esc> so it triggers abbreviations
 inoremap <C-c> <esc>
 
