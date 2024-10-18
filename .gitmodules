@@ -24,6 +24,6 @@
 [submodule "vim-caddyfile"]
 	path = .vim/pack/dist/start/vim-caddyfile
 	url = https://github.com/isobit/vim-caddyfile.git
-[submodule "gruvbox"]
-	path = .vim/pack/dist/start/gruvbox
-	url = https://github.com/morhetz/gruvbox.git
+[submodule "onedark.vim"]
+	path = .vim/pack/dist/start/onedark.vim
+	url = https://github.com/joshdick/onedark.vim.git
