@@ -64,6 +64,7 @@ vnoremap > >gv
 
 noremap <c-s> <cmd>w<cr><esc>
 inoremap <c-s> <cmd>w<cr><esc>
+vnoremap <c-s> <cmd>w<cr><esc>
 
 " Better cursor
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
