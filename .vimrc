@@ -74,8 +74,5 @@ set ttimeout
 set ttimeoutlen=1
 set ttyfast
 
-" Commentary
+" Default Comment String
 setlocal commentstring=#\ %s
-autocmd FileType cpp setlocal commentstring=//\ %s
-autocmd FileType vim setlocal commentstring=\"\ %s
-autocmd FileType systemd setlocal commentstring=#\ %s
