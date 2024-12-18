@@ -4,6 +4,7 @@ set background=dark
 set nocompatible
 set hidden
 set mouse=a
+set ttymouse=sgr
 set scrolloff=8
 
 set modeline
@@ -69,6 +70,15 @@ vnoremap <c-s> <cmd>w<cr><esc>
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+" Cursor control
+let &t_RC = "\e[?12$p"
+let &t_SH = "\e[%d q"
+let &t_RS = "\eP$q q\e\\"
+let &t_SI = "\e[5 q"
+let &t_SR = "\e[3 q"
+let &t_EI = "\e[1 q"
+let &t_VS = "\e[?12l"
 
 set ttimeout
 set ttimeoutlen=1
