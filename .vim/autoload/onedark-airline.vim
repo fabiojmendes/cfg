@@ -1,0 +1,1 @@
+../pack/dist/start/onedark.vim/autoload/airline/themes/onedark.vim
