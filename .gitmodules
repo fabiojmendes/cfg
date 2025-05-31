@@ -1,21 +1,28 @@
 [submodule ".local/share/tmux/onedark"]
 	path = .local/share/tmux/onedark
 	url = https://github.com/odedlaz/tmux-onedark-theme.git
+	update = rebase
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = https://github.com/fabiojmendes/nvim.git
+	update = rebase
 [submodule ".vim/pack/dist/start/vim-airline"]
 	path = .vim/pack/dist/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline
+	update = rebase
 [submodule ".vim/pack/dist/start/vim-airline-themes"]
 	path = .vim/pack/dist/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
+	update = rebase
 [submodule ".vim/pack/dist/start/commentary"]
 	path = .vim/pack/dist/start/commentary
 	url = https://github.com/tpope/vim-commentary.git
+	update = rebase
 [submodule ".vim/pack/dist/start/onedark.vim"]
 	path = .vim/pack/dist/start/onedark.vim
 	url = https://github.com/joshdick/onedark.vim.git
+	update = rebase
 [submodule ".vim/pack/dist/start/vim-polyglot"]
 	path = .vim/pack/dist/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
+	update = rebase
