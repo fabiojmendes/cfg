@@ -6,6 +6,8 @@ function cfg --wraps='git --git-dir=$HOME/.local/share/cfg/.git --work-tree=$HOM
         fisher update
     else if [ $argv[1] = fix-detached ]
         echo 'Fixing detached submodules'
+        git $git_args submodule sync --recursive
+        git $git_args submodule update --init --recursive
         git $git_args submodule foreach 'git switch master || git switch main'
         git $git_args pull --recurse-submodules
     else
