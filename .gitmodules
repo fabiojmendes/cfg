@@ -10,10 +10,6 @@
 	path = .vim/pack/dist/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline
 	update = rebase
-[submodule ".vim/pack/dist/start/vim-airline-themes"]
-	path = .vim/pack/dist/start/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes
-	update = rebase
 [submodule ".vim/pack/dist/start/commentary"]
 	path = .vim/pack/dist/start/commentary
 	url = https://github.com/tpope/vim-commentary.git
