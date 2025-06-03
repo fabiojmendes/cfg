@@ -40,8 +40,16 @@ set smartindent
 " KeyBindings "
 """""""""""""""
 
-map <space> <Leader>
+" Leader
+let mapleader = " "
 nmap <leader>bd <cmd>bd<cr>
+nmap <leader><space> <cmd>Files<cr>
+nmap <leader>ff <cmd>Files<cr>
+nmap <leader>fg <cmd>GFiles<cr>
+nmap <leader>fb <cmd>Buffers<cr>
+nmap <leader>fr <cmd>History<cr>
+nmap <leader>sj <cmd>Jumps<cr>
+nmap <leader>sm <cmd>Marks<cr>
 
 " Move between buffers
 nnoremap <S-H> <cmd>bprev<cr>
