@@ -26,3 +26,7 @@
 	path = .vim/pack/dist/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
 	update = rebase
+[submodule ".vim/pack/dist/start/unimpaired.git"]
+	path = .vim/pack/dist/start/unimpaired.git
+	url = https://tpope.io/vim/unimpaired.git
+	update = rebase
