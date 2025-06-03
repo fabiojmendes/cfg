@@ -88,3 +88,7 @@ set ttyfast
 
 " Default Comment String
 setlocal commentstring=#\ %s
+
+if has('mac')
+  set rtp+=/opt/homebrew/opt/fzf
+endif
