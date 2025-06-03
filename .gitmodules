@@ -26,3 +26,6 @@
 	path = .vim/pack/dist/start/unimpaired.git
 	url = https://github.com/tpope/vim-unimpaired.git
 	update = rebase
+[submodule ".vim/pack/dist/start/fzf.vim"]
+	path = .vim/pack/dist/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
