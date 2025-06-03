@@ -28,5 +28,5 @@
 	update = rebase
 [submodule ".vim/pack/dist/start/unimpaired.git"]
 	path = .vim/pack/dist/start/unimpaired.git
-	url = https://tpope.io/vim/unimpaired.git
+	url = https://github.com/tpope/vim-unimpaired.git
 	update = rebase
