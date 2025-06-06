@@ -8,11 +8,11 @@ add_rhel_repo() {
 }
 
 install_packages_apt() {
-  sudo apt update && sudo apt install -y git fish tmux vim $@
+  sudo apt update && sudo apt install -y git fish tmux vim fzf $@
 }
 
 install_packages_dnf() {
-  sudo dnf install -y vim git-core fish tmux util-linux-user $@
+  sudo dnf install -y vim git-core fish tmux util-linux-user fzf $@
 }
 
 install_dependencies() {
