@@ -78,6 +78,8 @@ install_cfg() {
 
   # First login setup
   $fish -l $CFG_HOME/first_login.fish
+
+  vim -u NONE -c "helptags ALL" -c q
 }
 
 echo "Installing shell cfg"
