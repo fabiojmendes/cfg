@@ -43,7 +43,7 @@ sudo_no_reset() {
   NO_RESET=$(mktemp)
   cat >$NO_RESET <<EOF
 Defaults:$USER !env_reset
-Defaults:$USER !always_set_home
+# Defaults:$USER !always_set_home
 EOF
 
   if ! /usr/sbin/visudo -c $NO_RESET; then
@@ -72,13 +72,6 @@ install_cfg() {
   $cfg checkout
   $cfg submodule update --init --remote
 
-  echo "Change default shell to fish"
-  fish=$(which fish)
-  sudo chsh -s $fish $USER
-
-  # First login setup
-  $fish -l $CFG_HOME/first_login.fish
-
   vim -c "helptags ALL" -c q > /dev/null
 }
 
@@ -93,3 +86,12 @@ install_dependencies
 configure_git
 install_cfg 
 sudo_no_reset
+
+fish=$(which fish)
+if [ "0" = "$(id -u)" ]; then
+  echo "Change default shell to fish"
+  sudo chsh -s $fish $USER
+fi
+
+echo "First login setup"
+$fish -l $CFG_HOME/first_login.fish
