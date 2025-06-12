@@ -49,7 +49,7 @@ EOF
   if ! /usr/sbin/visudo -c $NO_RESET; then
     exit 1
   fi
-  sudo install -o root -g root --mode 440 $NO_RESET /etc/sudoers.d/99-no-reset
+  sudo install -o root -g root --mode 440 $NO_RESET /etc/sudoers.d/99-$USER-no-reset
 }
 
 configure_git() {
@@ -85,12 +85,13 @@ fi
 install_dependencies
 configure_git
 install_cfg 
-sudo_no_reset
 
 fish=$(which fish)
+# User not root
 if [ "$(id -u)" -ne "0" ]; then
   echo "Change default shell to fish"
   sudo chsh -s $fish $USER
+  sudo_no_reset
 fi
 
 echo "First login setup"
