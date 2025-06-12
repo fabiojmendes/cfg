@@ -65,12 +65,12 @@ install_cfg() {
   # Cfg
   echo "Clone cfg repo"
   git clone --bare --recursive https://github.com/fabiojmendes/cfg.git $CFG_HOME/.git
-  alias cfg="git --git-dir=$CFG_HOME/.git --work-tree=$HOME"
-  cfg config --local status.showUntrackedFiles no
+  cfg="git --git-dir=$CFG_HOME/.git --work-tree=$HOME"
+  $cfg config --local status.showUntrackedFiles no
   # Remove old files
   rm -f $HOME/.tmux.conf $HOME/.vimrc $HOME/.toprc
-  cfg checkout
-  cfg submodule update --init --remote
+  $cfg checkout
+  $cfg submodule update --init --remote
 
   echo "Change default shell to fish"
   fish=$(which fish)
@@ -88,6 +88,7 @@ if [ -d $CFG_HOME ]; then
   echo "cfg already installed"
   exit 1
 fi
+
 install_dependencies
 configure_git
 install_cfg 
