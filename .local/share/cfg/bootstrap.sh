@@ -38,7 +38,7 @@ install_dependencies() {
 }
 
 sudo_no_reset() {
-  # Sudo no reset
+  echo "Sudo no reset"
   echo "Install sudo preferences for $USER"
   NO_RESET=$(mktemp)
   cat >$NO_RESET <<EOF
@@ -53,7 +53,7 @@ EOF
 }
 
 configure_git() {
-  # Git settings
+  echo "Git settings"
   git config --global init.defaultbranch master
   git config --global user.email "fabiojmendes@gmail.com"
   git config --global user.name "Fabio Mendes"
@@ -61,30 +61,32 @@ configure_git() {
   git config --global pull.rebase true
 }
 
+install_cfg() {
+  # Cfg
+  echo "Clone cfg repo"
+  git clone --bare --recursive https://github.com/fabiojmendes/cfg.git $CFG_HOME/.git
+  alias cfg="git --git-dir=$CFG_HOME/.git --work-tree=$HOME"
+  cfg config --local status.showUntrackedFiles no
+  # Remove old files
+  rm -f $HOME/.tmux.conf $HOME/.vimrc $HOME/.toprc
+  cfg checkout
+  cfg submodule update --init --remote
+
+  echo "Change default shell to fish"
+  fish=$(which fish)
+  sudo chsh -s $fish $USER
+
+  # First login setup
+  $fish -l $CFG_HOME/first_login.fish
+}
+
 echo "Installing shell cfg"
-cfg_home=$HOME/.local/share/cfg
-if [ -d $cfg_home ]; then
+CFG_HOME=$HOME/.local/share/cfg
+if [ -d $CFG_HOME ]; then
   echo "cfg already installed"
   exit 1
 fi
-
-sudo_no_reset
 install_dependencies
 configure_git
-
-# Cfg
-echo "Clone cfg repo"
-git clone --bare --recursive https://github.com/fabiojmendes/cfg.git $cfg_home/.git
-alias cfg="git --git-dir=$cfg_home/.git --work-tree=$HOME"
-cfg config --local status.showUntrackedFiles no
-# Remove old files
-rm -f $HOME/.tmux.conf $HOME/.vimrc $HOME/.toprc
-cfg checkout
-cfg submodule update --init --remote
-
-echo "Change default shell to fish"
-fish=$(which fish)
-sudo chsh -s $fish $USER
-
-# First login setup
-$fish -l $cfg_home/first_login.fish
+install_cfg 
+sudo_no_reset
