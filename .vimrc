@@ -17,6 +17,10 @@ packadd! onedark.vim
 set termguicolors
 colorscheme onedark
 
+" Splits
+set splitright
+set splitbelow
+
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -43,6 +47,7 @@ set smartindent
 " Leader
 let mapleader = " "
 nmap <leader>bd <cmd>bd<cr>
+" FZF
 nmap <leader><space> <cmd>Files<cr>
 nmap <leader>ff <cmd>Files<cr>
 nmap <leader>fg <cmd>GFiles<cr>
@@ -50,6 +55,9 @@ nmap <leader>fb <cmd>Buffers<cr>
 nmap <leader>fr <cmd>History<cr>
 nmap <leader>sj <cmd>Jumps<cr>
 nmap <leader>sm <cmd>Marks<cr>
+" Fugitive
+nmap <leader>gg <cmd>Git<cr>
+nmap <leader>gd <cmd>Gvdiffsplit!<cr>
 
 " Move between buffers
 nnoremap <S-H> <cmd>bprev<cr>
