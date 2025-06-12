@@ -72,7 +72,7 @@ install_cfg() {
   $cfg checkout
   $cfg submodule update --init --remote
 
-  vim -c "helptags ALL" -c q > /dev/null
+  vim -e -c "helptags ALL" -c q > /dev/null || true
 }
 
 echo "Installing shell cfg"
@@ -88,7 +88,7 @@ install_cfg
 sudo_no_reset
 
 fish=$(which fish)
-if [ "0" = "$(id -u)" ]; then
+if [ "$(id -u)" -ne "0" ]; then
   echo "Change default shell to fish"
   sudo chsh -s $fish $USER
 fi
