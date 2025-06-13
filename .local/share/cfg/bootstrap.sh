@@ -43,7 +43,7 @@ sudo_no_reset() {
   NO_RESET=$(mktemp)
   cat >$NO_RESET <<EOF
 Defaults:$USER !env_reset
-# Defaults:$USER !always_set_home
+Defaults:$USER always_set_home
 EOF
 
   if ! /usr/sbin/visudo -c $NO_RESET; then
@@ -72,7 +72,7 @@ install_cfg() {
   $cfg checkout
   $cfg submodule update --init --remote
 
-  vim -e -c "helptags ALL" -c q > /dev/null || true
+  vim -e -c "helptags ALL" -c q >/dev/null || true
 }
 
 echo "Installing shell cfg"
@@ -84,7 +84,7 @@ fi
 
 install_dependencies
 configure_git
-install_cfg 
+install_cfg
 
 fish=$(which fish)
 # User not root
