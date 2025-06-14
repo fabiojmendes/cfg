@@ -8,6 +8,7 @@ add_rhel_repo() {
 }
 
 install_packages_apt() {
+  export DEBIAN_FRONTEND=noninteractive
   sudo apt-get update && sudo apt-get install -y git fish tmux vim fzf $@
 }
 
