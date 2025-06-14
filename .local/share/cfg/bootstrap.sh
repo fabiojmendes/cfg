@@ -44,7 +44,7 @@ sudo_no_reset() {
   NO_RESET=$(mktemp)
   cat >$NO_RESET <<EOF
 Defaults:$USER !env_reset
-Defaults:$USER always_set_home
+Defaults:$USER !always_set_home
 EOF
 
   if ! /usr/sbin/visudo -c $NO_RESET; then
