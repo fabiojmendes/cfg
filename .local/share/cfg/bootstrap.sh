@@ -8,7 +8,7 @@ add_rhel_repo() {
 }
 
 install_packages_apt() {
-  sudo apt update && sudo apt install -y git fish tmux vim fzf $@
+  sudo apt-get update && sudo apt-get install -y git fish tmux vim fzf $@
 }
 
 install_packages_dnf() {
