@@ -69,7 +69,10 @@ clone_cfg() {
 
 }
 
-echo "Installing shell cfg"
+echo "##############################"
+echo "Installing shell cfg for $USER"
+echo "##############################"
+
 CFG_HOME=$HOME/.local/share/cfg
 if [ -d $CFG_HOME ]; then
   echo "cfg already installed"
