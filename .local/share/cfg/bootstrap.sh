@@ -61,18 +61,11 @@ configure_git() {
   git config --global pull.rebase true
 }
 
-install_cfg() {
-  # Cfg
+clone_cfg() {
   echo "Clone cfg repo"
   git clone --bare --recursive https://github.com/fabiojmendes/cfg.git $CFG_HOME/.git
-  cfg="git --git-dir=$CFG_HOME/.git --work-tree=$HOME"
-  $cfg config --local status.showUntrackedFiles no
-  # Remove old files
-  rm -f $HOME/.tmux.conf $HOME/.vimrc $HOME/.toprc
-  $cfg checkout
-  $cfg submodule update --init --remote
+  git --git-dir=$CFG_HOME/.git --work-tree=$HOME checkout
 
-  vim -e -c "helptags ALL" -c q >/dev/null || true
 }
 
 echo "Installing shell cfg"
@@ -84,7 +77,7 @@ fi
 
 install_dependencies
 configure_git
-install_cfg
+clone_cfg
 
 fish=$(which fish)
 # User not root
@@ -95,4 +88,4 @@ if [ "$(id -u)" -ne "0" ]; then
 fi
 
 echo "First login setup"
-$fish -l $CFG_HOME/first_login.fish
+$fish -l cfg install
