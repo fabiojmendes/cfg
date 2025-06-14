@@ -1,5 +1,5 @@
 if status is-interactive
-    set -l FIND $(which fd fdfind find | head -1)
+    set -l FIND $(which fd fdfind find 2> /dev/null | head -1)
     set -l FILES $($FIND -uid 0 | wc -l)
 
     if test $FILES -ne 0
