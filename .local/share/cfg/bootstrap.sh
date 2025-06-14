@@ -88,4 +88,4 @@ if [ "$(id -u)" -ne "0" ]; then
 fi
 
 echo "First login setup"
-$fish -l cfg install
+$fish -l -c "cfg install"
