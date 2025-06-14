@@ -1,5 +1,6 @@
-if status is-interactive && test $(uname) != Darwin
-    set -l FILES $(fd $HOME -uid 0 | wc -l)
+if status is-interactive
+    set -l FIND $(which fd fdfind find | head -1)
+    set -l FILES $($FIND $HOME -uid 0 | wc -l)
 
     if test $FILES -ne 0
         echo -e '\n'
