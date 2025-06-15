@@ -1,3 +1,7 @@
+complete -c cfg -x -a install -d 'Clone all submodules install fisher and setup prompt'
+complete -c cfg --no-files -a update -d 'Pull branch and all submodules, update fisher'
+complete -c cfg --no-files -a sync-update -d 'Resync all submodules'
+
 function cfg --wraps='git --git-dir=$HOME/.local/share/cfg/.git --work-tree=$HOME' --description 'Cfg utils'
 
     set -l git_args --git-dir=$HOME/.local/share/cfg/.git --work-tree=$HOME
