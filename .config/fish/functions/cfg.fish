@@ -5,7 +5,7 @@ function cfg --wraps='git --git-dir=$HOME/.local/share/cfg/.git --work-tree=$HOM
     switch $argv[1]
         case install
             git $git_args config --local status.showUntrackedFiles no
-            git $git_args submodule update --init --remote
+            git $git_args submodule update --init --remote --recursive
             _cfg_vim_tags
             _cfg_install
         case update
@@ -13,12 +13,10 @@ function cfg --wraps='git --git-dir=$HOME/.local/share/cfg/.git --work-tree=$HOM
             git $git_args pull --recurse-submodules
             _cfg_vim_tags
             fisher update
-        case fix-detached
-            echo 'Fixing detached submodules'
+        case sync-update
+            echo 'Resync submodules'
             git $git_args submodule sync --recursive
-            git $git_args submodule update --init --recursive
-            git $git_args submodule foreach 'git switch master || git switch main'
-            git $git_args pull --recurse-submodules
+            git $git_args submodule update --init --remote --recursive
         case '*'
             git $git_args $argv
     end
