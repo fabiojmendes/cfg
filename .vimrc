@@ -11,6 +11,7 @@ set modeline
 set number
 set laststatus=2
 set noshowmode
+set nowrap
 
 " Theme
 packadd! onedark.vim
