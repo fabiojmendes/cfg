@@ -111,7 +111,7 @@ if has('mac')
   set rtp+=/opt/homebrew/opt/fzf
 elseif has('linux')
   let s:uname = system('uname -a')
-  if match(s:uname, 'Debian') != -1
+  if match(s:uname, 'Debian\|Ubuntu') != -1
     set rtp+=/usr/share/doc/fzf/examples
   endif
 endif
