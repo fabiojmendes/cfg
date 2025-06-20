@@ -13,7 +13,7 @@ set laststatus=2
 set noshowmode
 set nowrap
 
-set wildmode=longest,list
+set wildmode=list:longest,full
 set wildoptions=pum
 set completeopt=longest,menu,noselect
 
