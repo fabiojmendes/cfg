@@ -13,6 +13,10 @@ set laststatus=2
 set noshowmode
 set nowrap
 
+set wildmode=longest,list
+set wildoptions=pum
+set completeopt=longest,menu,noselect
+
 " Theme
 packadd! onedark.vim
 set termguicolors
@@ -106,6 +110,9 @@ set ttyfast
 " Default Comment String
 setlocal commentstring=#\ %s
 autocmd FileType aptconf setlocal commentstring=//\ %s
+
+" Quit help using 'q'
+autocmd FileType help noremap <buffer> q <cmd>q<cr>
 
 if has('mac')
   set rtp+=/opt/homebrew/opt/fzf
