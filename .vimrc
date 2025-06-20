@@ -70,9 +70,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Esc removes search highlighting
-if v:version >= 900
-  noremap <silent> <esc> <cmd>nohl<cr><esc>
-endif
+noremap <silent> <esc> <cmd>nohl<cr><esc>
 
 " Maps <C-c> to <esc> so it triggers abbreviations
 inoremap <C-c> <esc>
