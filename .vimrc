@@ -14,7 +14,6 @@ set noshowmode
 set nowrap
 
 set wildmode=list:longest,full
-set wildoptions=pum
 set completeopt=longest,menu,noselect
 
 " Theme
