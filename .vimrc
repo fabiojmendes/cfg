@@ -112,6 +112,7 @@ autocmd FileType aptconf setlocal commentstring=//\ %s
 
 " Quit help using 'q'
 autocmd FileType help noremap <buffer> q <cmd>q<cr>
+autocmd FileType fugitive noremap <buffer> q <cmd>q<cr>
 
 if has('mac')
   set rtp+=/opt/homebrew/opt/fzf
