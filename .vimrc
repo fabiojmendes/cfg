@@ -114,11 +114,15 @@ autocmd FileType aptconf setlocal commentstring=//\ %s
 autocmd FileType help noremap <buffer> q <cmd>q<cr>
 autocmd FileType fugitive noremap <buffer> q <cmd>q<cr>
 
+let s:uname = system('uname -a')
 if has('mac')
-  set rtp+=/opt/homebrew/opt/fzf
+  if match(s:uname, 'arm64') >= 0
+    set rtp+=/opt/homebrew/opt/fzf
+  else
+    set rtp+=/usr/local/opt/fzf
+  endif
 elseif has('linux')
-  let s:uname = system('uname -a')
-  if match(s:uname, 'Debian\|Ubuntu') != -1
+  if matchstr(s:uname, 'Debian\|Ubuntu') >= 0
     set rtp+=/usr/share/doc/fzf/examples
   endif
 endif
