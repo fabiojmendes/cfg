@@ -28,7 +28,10 @@ set splitbelow
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='onedark'
+let g:airline_theme = "onedark"
+
+" Polyglot
+let g:polyglot_disabled = ["mermaid"]
 
 " Search
 set ignorecase
@@ -114,15 +117,15 @@ autocmd FileType aptconf setlocal commentstring=//\ %s
 autocmd FileType help noremap <buffer> q <cmd>q<cr>
 autocmd FileType fugitive noremap <buffer> q <cmd>q<cr>
 
-let s:uname = system('uname -a')
-if has('mac')
-  if match(s:uname, 'arm64') >= 0
+let s:uname = system("uname -a")
+if has("mac")
+  if match(s:uname, "arm64") >= 0
     set rtp+=/opt/homebrew/opt/fzf
   else
     set rtp+=/usr/local/opt/fzf
   endif
-elseif has('linux')
-  if matchstr(s:uname, 'Debian\|Ubuntu') >= 0
+elseif has("linux")
+  if matchstr(s:uname, "Debian\|Ubuntu") >= 0
     set rtp+=/usr/share/doc/fzf/examples
   endif
 endif
