@@ -34,3 +34,6 @@
 	path = .vim/pack/dist/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 	update = rebase
+[submodule ".vim/pack/dist/start/vim-systemd-syntax"]
+	path = .vim/pack/dist/start/vim-systemd-syntax
+	url = https://github.com/fabiojmendes/vim-systemd-syntax.git
