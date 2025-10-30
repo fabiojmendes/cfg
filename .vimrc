@@ -91,6 +91,20 @@ noremap <c-s> <cmd>w<cr><esc>
 inoremap <c-s> <cmd>w<cr><esc>
 vnoremap <c-s> <cmd>w<cr><esc>
 
+" Terminal
+function! ToggleTerminal()
+  let buffer = bufnr('ToggleTerminal')
+  if buffer == -1
+    terminal
+    file ToggleTerminal
+  else
+    execute "sbuffer" . buffer
+  endif
+endfunction
+
+nnoremap <c-/> <cmd>call ToggleTerminal()<cr>
+tnoremap <c-/> <cmd>hide<cr>
+
 " Better cursor
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
