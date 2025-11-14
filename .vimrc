@@ -66,7 +66,7 @@ nmap <leader>sm <cmd>Marks<cr>
 nmap <leader>gg <cmd>Git<cr>
 nmap <leader>gd <cmd>Gvdiffsplit!<cr>
 
-" Yank and paste plus register mappings
+" Plus register mappings
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>p "+p
