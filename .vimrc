@@ -104,6 +104,7 @@ endfunction
 
 nnoremap <c-/> <cmd>call ToggleTerminal()<cr>
 tnoremap <c-/> <cmd>hide<cr>
+tnoremap <esc><esc> <c-w>N
 
 " Better cursor
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
