@@ -66,6 +66,14 @@ nmap <leader>sm <cmd>Marks<cr>
 nmap <leader>gg <cmd>Git<cr>
 nmap <leader>gd <cmd>Gvdiffsplit!<cr>
 
+" Yank and paste plus register mappings
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>P "+P
+
 " Move between buffers
 nnoremap <S-H> <cmd>bprev<cr>
 nnoremap <S-L> <cmd>bnext<cr>
