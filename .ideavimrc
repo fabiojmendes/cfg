@@ -1,0 +1,83 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+" Source your .vimrc
+" source ~/.vimrc
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Settings"
+set visualbell
+set noerrorbells
+set hlsearch                      " highlight search occurrences
+set ignorecase                    " ignore case in search patterns
+set smartcase                     " no ignore case when pattern is uppercase
+set incsearch                     " show search results while typing
+
+" Don't use Ex mode, use Q for formatting.
+" map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+Plug 'tpope/surround'
+" NERDTree
+Plug 'preservim/nerdtree'
+
+" --- Key Bindings
+"
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+" Leader Maps
+" set <leader> to <space>
+let mapleader = " "
+nmap <leader>cf <Action>(ReformatCode)
+nmap <leader>cr <Action>(RenameElement)
+nmap <leader>ca <Action>(ShowIntentionActions)
+nmap <leader><space> <Action>(GotoFile)
+nmap <leader>sc <Action>(GotoClass)
+nmap <leader>bd <Action>(CloseEditor)
+nmap <leader>e :NERDTree<cr>
+
+" Basic maps
+nmap <C-c> <esc>
+imap <C-c> <esc>
+nmap <C-s> :w<cr>
+imap <C-s> <esc>:w<cr>
+vmap <C-s> <esc>:w<cr>
+" <ctrl-l> redraws the screen and removes any search highlighting.
+nmap <silent> <c-l> :nohl<cr><c-l>
+
+" Coding
+nmap <M-k> <Action>(MoveLineUp)
+nmap <M-j> <Action>(MoveLineDown)
+vmap <M-k> <Action>(MoveLineUp)
+vmap <M-j> <Action>(MoveLineDown)
+
+" Stay in indent mode
+vnoremap < <gv
+vnoremap > >gv
+
+" Actions
+nmap gl <Action>(ShowErrorDescription)
+nmap <S-l> <Action>(NextTab)
+nmap <S-h> <Action>(PreviousTab)
+nmap ]d <Action>(GotoNextError)
+nmap [d <Action>(GotoPreviousError)
+imap <C-k> <Action>(ParameterInfo)
