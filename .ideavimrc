@@ -48,6 +48,7 @@ Plug 'preservim/nerdtree'
 " set <leader> to <space>
 let mapleader = " "
 nmap <leader>cf <Action>(ReformatCode)
+nmap <leader>co <Action>(OptimizeImports)
 nmap <leader>cr <Action>(RenameElement)
 nmap <leader>ca <Action>(ShowIntentionActions)
 nmap <leader><space> <Action>(GotoFile)
@@ -62,7 +63,7 @@ nmap <C-s> :w<cr>
 imap <C-s> <esc>:w<cr>
 vmap <C-s> <esc>:w<cr>
 " <ctrl-l> redraws the screen and removes any search highlighting.
-nmap <silent> <c-l> :nohl<cr><c-l>
+" nmap <silent> <c-l> :nohl<cr><c-l>
 
 " Coding
 nmap <M-k> <Action>(MoveLineUp)

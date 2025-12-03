@@ -65,6 +65,7 @@ nmap <leader>sm <cmd>Marks<cr>
 " Fugitive
 nmap <leader>gg <cmd>Git<cr>
 nmap <leader>gd <cmd>Gvdiffsplit!<cr>
+nmap <leader>gD <cmd>Git difftool -y<cr>
 
 " Plus register mappings
 nnoremap <leader>y "+y
