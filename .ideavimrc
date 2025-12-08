@@ -59,13 +59,13 @@ nmap <leader>bo <Action>(CloseAllEditorsButActive)
 nmap <leader>e :NERDTree<cr>
 
 " Basic maps
-nmap <C-c> <esc>
-imap <C-c> <esc>
+" nmap <C-c> <esc>
+" imap <C-c> <esc>
 nmap <C-s> :w<cr>
 imap <C-s> <esc>:w<cr>
 vmap <C-s> <esc>:w<cr>
 " <ctrl-l> redraws the screen and removes any search highlighting.
-" nmap <silent> <c-l> :nohl<cr><c-l>
+nmap <silent> <c-l> :nohl<cr><c-l>
 
 " Coding
 nmap <M-k> <Action>(MoveLineUp)
