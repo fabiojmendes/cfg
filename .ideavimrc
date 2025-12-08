@@ -53,7 +53,9 @@ nmap <leader>cr <Action>(RenameElement)
 nmap <leader>ca <Action>(ShowIntentionActions)
 nmap <leader><space> <Action>(GotoFile)
 nmap <leader>sc <Action>(GotoClass)
+nmap <leader>ss <Action>(FileStructurePopup)
 nmap <leader>bd <Action>(CloseEditor)
+nmap <leader>bo <Action>(CloseAllEditorsButActive)
 nmap <leader>e :NERDTree<cr>
 
 " Basic maps
