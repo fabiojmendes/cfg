@@ -20,7 +20,7 @@ install_dependencies() {
   echo "Installing dependencies"
   . /etc/os-release
   case "$ID" in
-  debian | ubuntu)
+  debian | ubuntu | raspbian)
     install_packages_apt
     ;;
   rocky | centos | almalinux)
